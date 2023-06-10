@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Người dùng{% endblock %}
+{% block content %}
+        <h1 style="text-align:center; font-family:digital">Thông tin người dùng</h1>
+        <table class="table col-10 mx-auto text-center ok">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">CARD ID</th>
+                <th scope="col">Họ và Tên</th>
+                <th scope="col">Số điện thoại</th>
+                <th scope="col"></th>
+              </tr>
+            </thead>
+            <tbody class="pad">
+                {% for log in nguoidung %}
+                <tr>
+                    <td>{{log.id}}</td>
+                    <td>{{log.cardID}}</td>
+                    <td>{{log.name}}</td>
+                    <td>{{log.phone}}</td>
+                    <td><a href="{% url 'edit_user' log.id %}" class="btn btn-primary">Sửa</a><a href="{% url 'delete_user' log.id %}" class="btn btn-danger">Xóa</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+{% endblock %}

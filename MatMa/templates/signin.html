@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Đăng nhập{% endblock %}
+{% block content %}
+  <form class="mx-auto col-6 col-sm-6" action="{% url 'signin' %}" method='POST'>
+    {% csrf_token %}
+    {{form|crispy}}
+    <input type="submit" value="Đăng nhập" class="btn btn-primary"/>
+    <a href="{% url 'signup' %}" class="btn btn-primary">Chưa có tài khoản? Hãy tạo ngay nào!</a>
+  </form>
+{% endblock %}

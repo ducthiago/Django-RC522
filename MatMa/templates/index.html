@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Trang chủ{% endblock %}
+{% block content %}
+        <h1 style="text-align:center; font-family:digital">Lượt quẹt thẻ</h1>
+        <table class="table col-10 mx-auto text-center ok">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">CARD ID</th>
+                <th scope="col">Họ và Tên</th>
+                <th scope="col">Thời gian quẹt</th>
+              </tr>
+            </thead>
+            <tbody class="pad">
+                {% for log in logs %}
+                <tr>
+                    <td>{{log.id}}</td>
+                    <td>{{log.cardID}}</td>
+                    <td>{{log.name}}</td>
+                    <td>{{log.created}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+          </table>
+        {% endblock %}

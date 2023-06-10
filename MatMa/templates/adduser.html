@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Thêm người dùng{% endblock %}
+{% block content %}
+<form class="mx-auto col-6 col-sm-6" action="{% url 'adduser' %}" method='POST' enctype="multipart/form-data">
+  {% csrf_token %}
+  {{addbook|crispy}}
+  <input type="submit" value="Thêm" class="btn btn-success"/>
+</form>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Tìm kiếm{% endblock %}
+{% block content %}
+<div class="table col-10 mx-auto text-center">
+    {% if searched %}
+        <h1>Tìm kiếm người dùng: "{{searched}}"</h1>
+        <table class="table col-10 mx-auto text-center ok">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">CARD ID</th>
+              <th scope="col">Họ và Tên</th>
+              <th scope="col">Thời gian quẹt</th>
+            </tr>
+          </thead>
+          <tbody class="pad">
+              {% for item in tim2 %}
+              <tr>
+                  <td>{{item.id}}</td>
+                  <td>{{item.cardID}}</td>
+                  <td>{{item.name}}</td>
+                  <td>{{item.created}}</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+        </table>
+    {% else %}
+        <h1>Chưa nhập thông tin!</h1>    
+    {% endif %}
+</div>
+{% endblock %}

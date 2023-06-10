@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Xem và sửa{% endblock %}
+{% block content %}
+<div class="mx-auto col-6 col-sm-6">
+<button onclick="openField()" class="btn btn-primary col-12">Nhấp để sửa</button>
+<form class="" action="" method='POST'>
+    {% csrf_token %}
+    <fieldset disabled id="eth">
+    {{addbook|crispy}}
+    <button type="submit" class="btn btn-success col-12">Chấp nhận</button>
+    </fieldset>
+</form>
+</div>
+<script>
+    function openField(){
+        document.getElementById("eth").disabled=false;
+    }
+</script>
+{% endblock %}

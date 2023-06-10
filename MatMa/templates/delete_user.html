@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Xóa{% endblock %}
+{% block content %}
+<p style="text-align:center; font-family:digital; font-size:30px">Xác nhận xóa người dùng?</p><br/>
+
+<form class="d-flex justify-content-center" action="{% url 'delete_user' delete.id %}" method='POST'>
+    {% csrf_token %}
+    {{change|crispy}}
+    <a class="btn btn-success" href="{% url 'user' %}">Quay lại</a>
+    <input type="submit" value="Xác nhận" class="btn btn-danger"/>
+</form>
+{% endblock %}
